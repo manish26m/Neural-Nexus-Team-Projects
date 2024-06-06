@@ -1,2 +1,2 @@
 # Neuron Nexus 
-**Sample:** ![file](Git_commands)
+**Sample:** [file](Git_commands)
