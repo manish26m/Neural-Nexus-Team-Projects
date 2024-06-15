@@ -62,4 +62,4 @@ CREATE TABLE Assignment (
     FOREIGN KEY (cid) REFERENCES Course(cid),
     FOREIGN KEY (tid) REFERENCES Teacher(tid)
 );
-USE futurense;
+
