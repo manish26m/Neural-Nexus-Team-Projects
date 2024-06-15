@@ -29,5 +29,25 @@ CREATE TABLE course (
     FOREIGN KEY (tid) REFERENCES teacher(tid),
     FOREIGN KEY (sid) REFERENCES student(sid)
 );
+CREATE TABLE Grade (
+    gid INT PRIMARY KEY,
+    cid INT,
+    eid INT,
+    sid INT,
+    grades CHAR(1), -- Assuming grades are represented by a single character (A, B, C, etc.)
+    FOREIGN KEY (cid) REFERENCES Course(cid),
+    FOREIGN KEY (eid) REFERENCES Exams(eid),
+    FOREIGN KEY (sid) REFERENCES Student(sid)
+);
+CREATE TABLE Exams (
+    eid INT PRIMARY KEY,
+    ename VARCHAR(255) NOT NULL,
+    sid INT,
+    cid INT,
+    gid INT,
+    FOREIGN KEY (sid) REFERENCES Student(sid),
+    FOREIGN KEY (cid) REFERENCES Course(cid),
+    FOREIGN KEY (gid) REFERENCES Grade(gid)
+);
 
 
