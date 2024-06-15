@@ -50,4 +50,15 @@ CREATE TABLE Exams (
     FOREIGN KEY (gid) REFERENCES Grade(gid)
 );
 
+USE futurense;
 
+CREATE TABLE Assignment (
+    aid INT AUTO_INCREMENT PRIMARY KEY,
+    assignment_name VARCHAR(100) NOT NULL,
+    description TEXT,
+    deadline DATE,
+    cid INT NOT NULL,
+    tid INT NOT NULL,
+    FOREIGN KEY (cid) REFERENCES Course(cid),
+    FOREIGN KEY (tid) REFERENCES Teacher(tid)
+);
