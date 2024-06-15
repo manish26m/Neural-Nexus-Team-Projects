@@ -61,3 +61,12 @@ CREATE TABLE Assignment (
     FOREIGN KEY (tid) REFERENCES Teacher(tid)
 );
 
+CREATE TABLE Attendance (
+    atid INT AUTO_INCREMENT PRIMARY KEY,
+    sid INT NOT NULL,
+    cid INT NOT NULL,
+    attendance_date DATE NOT NULL,
+    status ENUM('Present', 'Absent') NOT NULL,
+    FOREIGN KEY (sid) REFERENCES student(sid),
+    FOREIGN KEY (cid) REFERENCES course(cid)
+)
