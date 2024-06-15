@@ -45,12 +45,9 @@ CREATE TABLE Exams (
     ename VARCHAR(255) NOT NULL,
     sid INT,
     cid INT,
-    gid INT,
     FOREIGN KEY (sid) REFERENCES Student(sid),
-    FOREIGN KEY (cid) REFERENCES Course(cid),
-    FOREIGN KEY (gid) REFERENCES Grade(gid)
+    FOREIGN KEY (cid) REFERENCES Course(cid)
 );
-
 
 
 CREATE TABLE Assignment (
