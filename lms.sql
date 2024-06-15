@@ -8,7 +8,8 @@ phonenumber int not null,
 age int(2) not null,
 gender enum("Male","Female","Others"),
 email varchar(50) unique,
-address varchar(100) not null
+address varchar(100) not null,
+password varchar(100) not null
 );
 
 create table teacher(
