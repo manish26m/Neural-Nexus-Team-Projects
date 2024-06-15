@@ -50,7 +50,7 @@ CREATE TABLE Exams (
     FOREIGN KEY (gid) REFERENCES Grade(gid)
 );
 
-USE futurense;
+
 
 CREATE TABLE Assignment (
     aid INT AUTO_INCREMENT PRIMARY KEY,
@@ -62,3 +62,4 @@ CREATE TABLE Assignment (
     FOREIGN KEY (cid) REFERENCES Course(cid),
     FOREIGN KEY (tid) REFERENCES Teacher(tid)
 );
+USE futurense;
