@@ -1,8 +1,8 @@
 # Neural Nexus 
 ## 📚 Futurense Database Schema
 
-![image](https://github.com/yashvisharma1204/Neural-Nexus/assets/150244397/c183e77b-f278-4c8d-a968-4532639bb9e1)
 
+<img src="https://github.com/yashvisharma1204/Neural-Nexus/assets/150244397/c183e77b-f278-4c8d-a968-4532639bb9e1" alt="Futureense Database Schema" width="600" height="600">
 
 This document describes the entities, their attributes, and the relationships in the Futurense database schema.
 
