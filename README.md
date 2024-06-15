@@ -1,6 +1,8 @@
 # Neural Nexus 
 ## 📚 Futurense Database Schema
 
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/39e58570-f4ad-4ab7-a29f-4e54a1e0aa37/eda06363-14da-4a5d-8add-3fc7dbacefca/Untitled.png)
+
 This document describes the entities, their attributes, and the relationships in the Futurense database schema.
 
 ### Entities and Attributes
