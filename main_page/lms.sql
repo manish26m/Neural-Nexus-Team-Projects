@@ -134,4 +134,8 @@ INSERT INTO Assignment (assignment_name, description, deadline, cid, tid) VALUES
 ('Physics Assignment 1', 'Mechanics problems', '2024-07-01', 2, 2),
 ('Chemistry Assignment 1', 'Organic chemistry problems', '2024-07-01', 3, 3),
 ('Biology Assignment 1', 'Cell biology questions', '2024-07-01', 4, 4),
+<<<<<<< HEAD:main_page/lms.sql
 ('CS Assignment 1', 'Programming in Python', '2024-07-01', 5, 5);
+=======
+('CS Assignment 1', 'Programming in Python', '2024-07-01', 5, 5);
+>>>>>>> fef5ba4ce77adeec32a4b65f5633eebfeff90aa9:lms.sql
