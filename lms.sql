@@ -1,6 +1,5 @@
 create database futurense;
 use futurense;
-
 create table student(
 sid int primary key auto_increment,
 sname varchar(50) not null,
@@ -31,7 +30,7 @@ CREATE TABLE course (
     FOREIGN KEY (sid) REFERENCES student(sid)
 );
 CREATE TABLE Grade (
-    gid INT PRIMARY KEY,
+    gid INT AUTO_INCREMENT PRIMARY KEY,
     cid INT,
     eid INT,
     sid INT,
@@ -41,7 +40,7 @@ CREATE TABLE Grade (
     FOREIGN KEY (sid) REFERENCES Student(sid)
 );
 CREATE TABLE Exams (
-    eid INT PRIMARY KEY,
+    eid INT AUTO_INCREMENT PRIMARY KEY,
     ename VARCHAR(255) NOT NULL,
     sid INT,
     cid INT,
@@ -113,4 +112,26 @@ INSERT INTO Attendance (sid, cid, attendance_date, status) VALUES
 (8, 3, '2024-06-02', 'Absent'),
 (9, 4, '2024-06-02', 'Present'),
 (10, 5, '2024-06-02', 'Present');
-select*from student;
+
+INSERT INTO Exams (ename, sid, cid) VALUES
+('Midterm Mathematics', 1, 1),
+('Midterm Physics', 2, 2),
+('Midterm Chemistry', 3, 3),
+('Midterm Biology', 4, 4),
+('Midterm Computer Science', 5, 5);
+
+-- Insert data into Grade
+INSERT INTO Grade (cid, eid, sid, grades) VALUES
+(1, 1, 1, 'A'),
+(2, 2, 2, 'B'),
+(3, 3, 3, 'A'),
+(4, 4, 4, 'C'),
+(5, 5, 5, 'B');
+
+-- Insert data into Assignment
+INSERT INTO Assignment (assignment_name, description, deadline, cid, tid) VALUES
+('Math Assignment 1', 'Algebra problems', '2024-07-01', 1, 1),
+('Physics Assignment 1', 'Mechanics problems', '2024-07-01', 2, 2),
+('Chemistry Assignment 1', 'Organic chemistry problems', '2024-07-01', 3, 3),
+('Biology Assignment 1', 'Cell biology questions', '2024-07-01', 4, 4),
+('CS Assignment 1', 'Programming in Python', '2024-07-01', 5, 5);
