@@ -9,14 +9,14 @@ from tkinter import messagebox
 import random
 
 username = "root"
-password = "30127"
+password = "Tiya1221"
 
 # MySQL connection code
 my_db = mysql.connector.connect(
     host="localhost",
     user=username,
     passwd=password,
-    database="futurensee"
+    database="futurense"
 )
 cursor= my_db.cursor()
 cursor.execute("SHOW TABLES")
@@ -39,7 +39,7 @@ from PIL import Image, ImageTk
 window = tb.Window(themename="darkly")
 window.geometry("1366x768")
 window.title("Futurense")
-logo_path = "lms-2.ico"      
+logo_path = "login page/lms-2.png"      
 window.iconbitmap(logo_path)
 window.style.configure('my.Treeview', rowheight=25)
 def generate_otp():
@@ -83,7 +83,7 @@ def reset_password():
                     try:
                         # Update the password in the database
                         email = forgot_username_entry.get()
-                        query = "UPDATE student SET pass = %s WHERE email = %s"
+                        query = "UPDATE student SET password = %s WHERE email = %s"
                         cursor.execute(query, (new_password, email))
                         my_db.commit()
                         messagebox.showinfo("Success", "Password has been reset successfully!")
@@ -97,7 +97,7 @@ def reset_password():
 
         reset_password_button = ttk.Button(new_centered_frame, text="Reset Password", command=confirm_reset)
         reset_password_button.grid(row=4, column=0, padx=20, pady=20, ipadx=20, ipady=10)
-        icon_path = "lms3.png"
+        icon_path = "login page/lms3.png"
         icon_image1 = Image.open(icon_path)
         icon_image1 = icon_image.resize((200, 100))  
         photo_icon2 = ImageTk.PhotoImage(icon_image1)
@@ -141,7 +141,7 @@ def login():
         messagebox.showerror("Error", "Please enter both username and pass")
         return
 
-    query = "SELECT * FROM student WHERE email = %s AND pass = %s"
+    query = "SELECT * FROM student WHERE email = %s AND password = %s"
     cursor.execute(query, (username, password))
     result = cursor.fetchone()
 
@@ -205,7 +205,7 @@ def forgot_password():
     reset_button.grid(row=7, column=0, padx=20, pady=20, ipadx=20, ipady=10, sticky="nsew")
     
     # Icon image
-    icon_path = "lms3.png"
+    icon_path = "login page/lms3.png"
     icon_image = Image.open(icon_path)
     icon_image = icon_image.resize((200, 100))  
     photo_icon1 = ImageTk.PhotoImage(icon_image)
@@ -223,8 +223,8 @@ def forgot_password():
 
 
 # Load the image
-icon_path="lms3.png"
-image = Image.open("lms1.png")
+icon_path="login page/lms3.png"
+image = Image.open("login page/lms1.png")
 image = image.resize((1900// 2, 1000))  # Resize image to half width
 photo = ImageTk.PhotoImage(image)
 
@@ -240,9 +240,6 @@ style.configure('mystyle.TFrame', background='white')
 
 # Apply the style to the login frame
 login_frame.configure(style='mystyle.TFrame')
-
-
-
 
 # Title label
 
