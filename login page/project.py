@@ -52,7 +52,7 @@ def reset_password():
         
         reset_window.iconbitmap(logo_path)
         reset_window.geometry("1366x768")
-        background_image1 = Image.open("password1.png")
+        background_image1 = Image.open("login page/password1.png")
         background_image1 = background_image1.resize((1900, 1100)) 
         background_photo1 = ImageTk.PhotoImage(background_image1)
         background_label = tb.Label(reset_window, image=background_photo1)
@@ -163,7 +163,7 @@ def forgot_password():
     forgot_window.iconbitmap(logo_path)
     
     # Background image
-    background_image = Image.open("password reset.png")
+    background_image = Image.open("login page/password reset.png")
     background_image = background_image.resize((2000, 1200)) 
     background_photo = ImageTk.PhotoImage(background_image)
     

@@ -72,23 +72,23 @@ CREATE TABLE Attendance (
 );
 
 INSERT INTO student (sname, phonenumber, age, gender, email, address, password) VALUES
-('Ravi Kumar', '9876543210', 21, 'Male', 'ravi@example.com', 'Delhi, India', 'password123'),
-('Sita Sharma', '8765432109', 22, 'Female', 'sita@example.com', 'Mumbai, India', 'password123'),
-('Arjun Singh', '7654321098', 23, 'Male', 'arjun@example.com', 'Chennai, India', 'password123'),
-('Priya Patel', '6543210987', 20, 'Female', 'priya@example.com', 'Kolkata, India', 'password123'),
-('Vijay Rao', '5432109876', 21, 'Male', 'vijay@example.com', 'Hyderabad, India', 'password123'),
-('Anita Das', '4321098765', 22, 'Female', 'anita@example.com', 'Pune, India', 'password123'),
-('Amit Joshi', '3210987654', 23, 'Male', 'amit@example.com', 'Ahmedabad, India', 'password123'),
-('Meena Reddy', '2109876543', 20, 'Female', 'meena@example.com', 'Bangalore, India', 'password123'),
-('Rajesh Mehta', '1098765432', 21, 'Male', 'rajesh@example.com', 'Surat, India', 'password123'),
-('Neha Gupta', '0987654321', 22, 'Female', 'neha@example.com', 'Jaipur, India', 'password123');
+('Ravi Kumar', '987654321', 21, 'Male', 'ravi@example.com', 'Delhi, India', 'password123'),
+('Sita Sharma', '876543210', 22, 'Female', 'sita@example.com', 'Mumbai, India', 'password123'),
+('Arjun Singh', '765432109', 23, 'Male', 'arjun@example.com', 'Chennai, India', 'password123'),
+('Priya Patel', '654321098', 20, 'Female', 'priya@example.com', 'Kolkata, India', 'password123'),
+('Vijay Rao', '543210987', 21, 'Male', 'vijay@example.com', 'Hyderabad, India', 'password123'),
+('Anita Das', '432109876', 22, 'Female', 'anita@example.com', 'Pune, India', 'password123'),
+('Amit Joshi', '321098765', 23, 'Male', 'amit@example.com', 'Ahmedabad, India', 'password123'),
+('Meena Reddy', '210987653', 20, 'Female', 'meena@example.com', 'Bangalore, India', 'password123'),
+('Rajesh Mehta', '109876432', 21, 'Male', 'rajesh@example.com', 'Surat, India', 'password123'),
+('Neha Gupta', '098765421', 22, 'Female', 'neha@example.com', 'Jaipur, India', 'password123');
 
 INSERT INTO teacher (tname, phonenumber, age, gender, email, address) VALUES
-('Dr. Ashok Verma', '9988776655', 45, 'Male', 'ashok@example.com', 'Delhi, India'),
-('Prof. Sunita Kapoor', '8877665544', 40, 'Female', 'sunita@example.com', 'Mumbai, India'),
-('Dr. Rajan Iyer', '7766554433', 50, 'Male', 'rajan@example.com', 'Chennai, India'),
-('Prof. Kavita Sharma', '6655443322', 38, 'Female', 'kavita@example.com', 'Kolkata, India'),
-('Dr. Mohan Patel', '5544332211', 42, 'Male', 'mohan@example.com', 'Hyderabad, India');
+('Dr. Ashok Verma', '988776655', 45, 'Male', 'ashok@example.com', 'Delhi, India'),
+('Prof. Sunita Kapoor', '877665544', 40, 'Female', 'sunita@example.com', 'Mumbai, India'),
+('Dr. Rajan Iyer', '776654433', 50, 'Male', 'rajan@example.com', 'Chennai, India'),
+('Prof. Kavita Sharma', '655443322', 38, 'Female', 'kavita@example.com', 'Kolkata, India'),
+('Dr. Mohan Patel', '554432211', 42, 'Male', 'mohan@example.com', 'Hyderabad, India');
 
 INSERT INTO course (cname, tid, sid) VALUES
 ('Mathematics', 1, 1),
@@ -113,3 +113,4 @@ INSERT INTO Attendance (sid, cid, attendance_date, status) VALUES
 (8, 3, '2024-06-02', 'Absent'),
 (9, 4, '2024-06-02', 'Present'),
 (10, 5, '2024-06-02', 'Present');
+select*from student;
