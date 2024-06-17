@@ -265,35 +265,17 @@ title_label5 = tb.Label(login_frame, text="Nice to see you!\nPlease log in with 
 title_label5.pack(padx=0,pady=20)  # Add padding for spacing
 
 
-
-
-
 # Username label and entry
-user_label = tb.Label(login_frame, text="Username:", font=("Times", 12),background='white', foreground='black',width=30)
-user_label.pack(pady=20, padx=20, anchor="w")  # Anchor left for alignment
+user_label = Label(login_frame, text="Username", font=("Times", 12),bg='white',fg='black')
+user_label.pack(pady=10)
+user_entry = ttk.Entry(login_frame, font=("Helvetica", 14), width=50)
+user_entry.pack(pady=5)
 
-user_style = ttk.Style()
-user_style.configure("userEntry.TFrame", background="white",
-                          borderwidth=2, relief="raised", font=("Times", 14))
-user_style.configure("userEntry.TEntry", background="white", font=("Times", 14), show="*",foreground="grey")  # Use asterisk for masking
+password_label = Label(login_frame, text="Password", font=("Times", 12),bg='white',fg='black')
+password_label.pack(pady=10)
+password_entry = ttk.Entry(login_frame, font=("Helvetica", 14), show="*", width=50)
+password_entry.pack(pady=5)
 
-user_entry_width = 50 # Adjust width as needed
-user_entry = ttk.Entry(login_frame, style="userEntry", width=user_entry_width,background='grey', foreground='skyblue')
-user_entry.pack(pady=5, padx=5, fill="both", expand=False) 
-
-
-# Password label and entry
-password_label = tb.Label(login_frame, text="Password:", font=("Times", 12),background='white', foreground='black')
-password_label.pack(pady=20, padx=20, anchor="w")  # Anchor left for alignment
-
-password_style = ttk.Style()
-password_style.configure("PasswordEntry.TFrame", background="white",
-                          borderwidth=2, relief="raised", font=("Times", 14))
-password_style.configure("PasswordEntry.TEntry", background="white", font=("Times", 14), show="*")  # Use asterisk for masking
-
-password_entry_width = 50 # Adjust width as needed
-password_entry = ttk.Entry(login_frame, style="PasswordEntry", show="*", width=password_entry_width,background='grey', foreground='skyblue')
-password_entry.pack(pady=5, padx=5, fill="both", expand=False) 
 
 '''# Additional entry fields (replace with your labels as needed)
 email_label = tb.Label(login_frame, text="Email:")
