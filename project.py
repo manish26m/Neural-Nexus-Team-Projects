@@ -9,7 +9,7 @@ from tkinter import messagebox
 import random
 
 username = "root"
-password = "30127"
+password = "Tiya1221"
 
 # MySQL connection code
 my_db = mysql.connector.connect(
@@ -149,6 +149,9 @@ def login():
     result = cursor.fetchone()
 
     if result:
+        with open("log.txt", "w") as file:
+            file.write(user)
+
         messagebox.showinfo("Success", "Login successful!")
         window.destroy()  # Close the login window
         open_main_app()  # Open the main application window
