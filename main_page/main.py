@@ -5,12 +5,12 @@ from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
 from tkinter import messagebox
 
-username = "root"
-password = "Tiya1221"
+username = "nerualnexus"
+password = "neuralnexus@01"
 
 # MySQL connection code
 my_db = mysql.connector.connect(
-    host="localhost",
+    host="127.0.0.1",
     user=username,
     passwd=password,
     database="futurense"
