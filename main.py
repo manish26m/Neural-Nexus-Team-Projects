@@ -25,8 +25,10 @@ window.geometry("1366x768")
 window.title("Futurense")
 
 # Load the background image
-bg_image = Image.open("main_page/background.png")
+bg_image = Image.open("main_page/background.jpg")
+bg_image= bg_image.resize((1366,768),Image.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
+
 
 # Create a label to display the background image
 bg_label = Label(window, image=bg_photo)
@@ -116,7 +118,7 @@ icon_image = icon_image.resize((50, 50), Image.LANCZOS)  # Resize the image to 5
 icon_photo = ImageTk.PhotoImage(icon_image)
 
 # Create a button with the icon for toggling left column visibility
-toggle_button = Button(window, image=icon_photo, command=toggle_left_column, borderwidth=0)
+toggle_button = Button(window, image=icon_photo, command=toggle_left_column, borderwidth=0, bg="goldenrod2")
 toggle_button.place(x=1200, y=150)  # Place the button in the middle below the header
 
 # Create card buttons directly on the window

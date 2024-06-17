@@ -64,12 +64,12 @@ def reset_password():
         new_centered_frame.place(relx=0.5, rely=0.5, anchor="center")
 
         
-        reset_label1=tb.Label(new_centered_frame,text="Enter new password:-",font=("Georgia", 20), foreground='sky blue').grid(row=0,column=0)
-        new_label_entry = ttk.Entry(new_centered_frame, font=("Georgia", 14), width=30)
+        reset_label1=tb.Label(new_centered_frame,text="Enter new password:-",font=("Times", 20), foreground='sky blue').grid(row=0,column=0)
+        new_label_entry = ttk.Entry(new_centered_frame, font=("Times", 14), width=30)
         new_label_entry.grid(row=1, column=0, padx=20, pady=10)
 
         
-        confirm_label = tb.Label(new_centered_frame, text="confirmation:", font=("Georgia", 20), foreground='sky blue').grid(row=2, column=0)
+        confirm_label = tb.Label(new_centered_frame, text="confirmation:", font=("Times", 20), foreground='sky blue').grid(row=2, column=0)
         confirm_var = StringVar(value="No")
         confirm_yes = ttk.Radiobutton(new_centered_frame, text="Yes", variable=confirm_var, value="Yes")
         confirm_no = ttk.Radiobutton(new_centered_frame, text="No", variable=confirm_var, value="No")
@@ -180,19 +180,19 @@ def forgot_password():
     centered_frame.place(relx=0.5, rely=0.5, anchor="center")
     
     # Label for username entry
-    forgot_label = tb.Label(centered_frame, text="Enter your username to reset password:", font=("Georgia", 12), background='white', foreground='blue')
+    forgot_label = tb.Label(centered_frame, text="Enter your username to reset password:", font=("Times", 12), background='white', foreground='blue')
     forgot_label.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
     
     # Username entry field (styled)
-    forgot_username_entry = ttk.Entry(centered_frame, font=("Georgia", 14), width=30)
+    forgot_username_entry = ttk.Entry(centered_frame, font=("Times", 14), width=30)
     forgot_username_entry.grid(row=1, column=0, padx=20, pady=10)
 
     # Label for mobile number entry
-    forgot_label = tb.Label(centered_frame, text="Enter your mobile number to reset password:", font=("Georgia", 12), background='white', foreground='blue')
+    forgot_label = tb.Label(centered_frame, text="Enter your mobile number to reset password:", font=("Times", 12), background='white', foreground='blue')
     forgot_label.grid(row=2, column=0, padx=20, pady=20, sticky="nsew")
     
     # Mobile number entry field (styled)
-    forgot_mobile_entry = ttk.Entry(centered_frame, font=("Georgia", 14), width=30)
+    forgot_mobile_entry = ttk.Entry(centered_frame, font=("Times", 14), width=30)
     forgot_mobile_entry.grid(row=3, column=0, padx=20, pady=10)
 
     # Generate OTP button
@@ -200,10 +200,10 @@ def forgot_password():
     forgot_button.grid(row=4, column=0, padx=20, pady=20, ipadx=20, ipady=10, sticky="nsew")
 
     # OTP section
-    otp_label = tb.Label(centered_frame, text="Enter the OTP:", font=("Georgia", 12), background='white', foreground='blue')
+    otp_label = tb.Label(centered_frame, text="Enter the OTP:", font=("Times", 12), background='white', foreground='blue')
     otp_label.grid(row=5, column=0, padx=20, pady=20, sticky="nsew")
     
-    otp_entry = ttk.Entry(centered_frame, font=("Georgia", 14), width=30)
+    otp_entry = ttk.Entry(centered_frame, font=("Times", 14), width=30)
     otp_entry.grid(row=6, column=0, padx=20, pady=10)
     
     # Reset password button
@@ -258,10 +258,10 @@ icon_title_frame.pack(anchor='nw',padx=10, pady=70)
 icon_label = tb.Label(icon_title_frame, image=photo_icon)
 icon_label.pack(side="left")  # Pack the icon on the left side
 
-title_label = tb.Label(login_frame, text="WELCOME BACK", font=("Helvetica", 50,"bold") ,background='white', foreground='black')
+title_label = tb.Label(login_frame, text="WELCOME BACK", font=("Times", 50,"bold") ,background='white', foreground='black')
 title_label.pack(anchor='nw',padx=10,pady=0)  # Add padding for spacing
 
-title_label5 = tb.Label(login_frame, text="Nice to see you! Please log in with your account.", font=("Georgia", 24),background='white', foreground='black')
+title_label5 = tb.Label(login_frame, text="Nice to see you!\nPlease log in with your account.", font=("Times", 24),background='white', foreground='black')
 title_label5.pack(padx=0,pady=20)  # Add padding for spacing
 
 
@@ -269,13 +269,13 @@ title_label5.pack(padx=0,pady=20)  # Add padding for spacing
 
 
 # Username label and entry
-user_label = tb.Label(login_frame, text="Username:", font=("Georgia", 12),background='white', foreground='black')
+user_label = tb.Label(login_frame, text="Username:", font=("Times", 12),background='white', foreground='black',width=30)
 user_label.pack(pady=20, padx=20, anchor="w")  # Anchor left for alignment
 
 user_style = ttk.Style()
 user_style.configure("userEntry.TFrame", background="white",
-                          borderwidth=2, relief="raised", font=("Georgia", 14))
-user_style.configure("userEntry.TEntry", background="white", font=("Georgia", 14), show="*",foreground="grey")  # Use asterisk for masking
+                          borderwidth=2, relief="raised", font=("Times", 14))
+user_style.configure("userEntry.TEntry", background="white", font=("Times", 14), show="*",foreground="grey")  # Use asterisk for masking
 
 user_entry_width = 50 # Adjust width as needed
 user_entry = ttk.Entry(login_frame, style="userEntry", width=user_entry_width,background='grey', foreground='skyblue')
@@ -283,13 +283,13 @@ user_entry.pack(pady=5, padx=5, fill="both", expand=False)
 
 
 # Password label and entry
-password_label = tb.Label(login_frame, text="Password:", font=("Georgia", 12),background='white', foreground='black')
+password_label = tb.Label(login_frame, text="Password:", font=("Times", 12),background='white', foreground='black')
 password_label.pack(pady=20, padx=20, anchor="w")  # Anchor left for alignment
 
 password_style = ttk.Style()
 password_style.configure("PasswordEntry.TFrame", background="white",
-                          borderwidth=2, relief="raised", font=("Georgia", 14))
-password_style.configure("PasswordEntry.TEntry", background="white", font=("Georgia", 14), show="*")  # Use asterisk for masking
+                          borderwidth=2, relief="raised", font=("Times", 14))
+password_style.configure("PasswordEntry.TEntry", background="white", font=("Times", 14), show="*")  # Use asterisk for masking
 
 password_entry_width = 50 # Adjust width as needed
 password_entry = ttk.Entry(login_frame, style="PasswordEntry", show="*", width=password_entry_width,background='grey', foreground='skyblue')
@@ -317,7 +317,7 @@ login_button.pack(pady=15, padx=20, ipadx=30, ipady=10)  # Add padding and inter
 '''
 # Create a style
 button_style = ttk.Style()
-button_style.configure("CustomButton.TButton", font=("Georgia", 14),background="lightblue")  # Add background color if desired
+button_style.configure("CustomButton.TButton", font=("Times", 14),background="lightblue")  # Add background color if desired
 login_button = ttk.Button(login_frame, text="Login", style="CustomButton", command=login).pack(pady=15, padx=20, ipadx=30, ipady=10)
 
 # Create the login button with the custom style
