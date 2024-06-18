@@ -16,7 +16,7 @@ my_db = mysql.connector.connect(
     host="localhost",
     user=username,
     passwd=password,
-    database="futurense"
+    database="lms"
 )
 cursor= my_db.cursor()
 cursor.execute("SHOW TABLES")
