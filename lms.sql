@@ -99,9 +99,9 @@ INSERT INTO course (cid,cname, tid) VALUES
 (36,'Mathematics', 12),
 (37,'DSA', 13),
 (38,'DBMS', 14),
-(39,'Data Networking and Compunication', 15),
+(39,'Data Networking and Communication', 15),
 (40,'Software Engineering', 16),
-(41,'python',17);
+(41,'Python',17);
 
 
 INSERT INTO Attendance (sid, cid, attendance_date, status) VALUES
@@ -198,16 +198,16 @@ INSERT INTO Exams (eid,ename, sid, cid) VALUES
 (88,'Midterm DBMS', 8, 38),
 (89,'Midterm DBMS', 9, 38),
 (90,'Midterm DBMS', 10, 38),
-(91,'Data Networking and Compunication', 1, 39),
-(92,'Data Networking and Compunication', 2, 39),
-(93,'Data Networking and Compunication', 3, 39),
-(94,'Data Networking and Compunication', 4, 39),
-(95,'Data Networking and Compunication', 5, 39),
-(96,'Data Networking and Compunication', 6, 39),
-(97,'Data Networking and Compunication', 7, 39),
-(98,'Data Networking and Compunication', 8, 39),
-(99,'Data Networking and Compunication', 9, 39),
-(100,'Data Networking and Compunication', 10, 39),
+(91,'Data Networking and Communication', 1, 39),
+(92,'Data Networking and Communication', 2, 39),
+(93,'Data Networking and Communication', 3, 39),
+(94,'Data Networking and Communication', 4, 39),
+(95,'Data Networking and Communication', 5, 39),
+(96,'Data Networking and Communication', 6, 39),
+(97,'Data Networking and Communication', 7, 39),
+(98,'Data Networking and Communication', 8, 39),
+(99,'Data Networking and Communication', 9, 39),
+(100,'Data Networking and Communication', 10, 39),
 (101,'Software Engineering', 1, 40),
 (102,'Software Engineering', 2, 40),
 (103,'Software Engineering', 3, 40),
@@ -218,16 +218,16 @@ INSERT INTO Exams (eid,ename, sid, cid) VALUES
 (108,'Software Engineering', 8, 40),
 (109,'Software Engineering', 9, 40),
 (110,'Software Engineering', 10, 40),
-(111,'python',1,41),
-(112,'python',2,41),
-(113,'python',3,41),
-(114,'python',4,41),
-(115,'python',5,41),
-(116,'python',6,41),
-(117,'python',7,41),
-(118,'python',8,41),
-(119,'python',9,41),
-(120,'python',10,41);
+(111,'Python',1,41),
+(112,'Python',2,41),
+(113,'Python',3,41),
+(114,'Python',4,41),
+(115,'Python',5,41),
+(116,'Python',6,41),
+(117,'Python',7,41),
+(118,'Python',8,41),
+(119,'Python',9,41),
+(120,'Python',10,41);
 
 -- Insert data into Grade
 INSERT INTO Grade (gid,cid, eid, sid, grades) VALUES
@@ -299,7 +299,7 @@ INSERT INTO Assignment (assignment_name, description, deadline, cid, tid) VALUES
 ('dbms Assignment 1', 'dbms problems', '2024-07-01', 38, 14),
 ('dc Assignment 1', 'dc questions', '2024-07-01', 39, 15),
 ('software Assignment 1', 'Programming in Python', '2024-07-01', 40, 16),
-('python Assignment 1','python problem','2024-07-01',41,17);
+('Python Assignment 1','Python problem','2024-07-01',41,17);
 
 
 INSERT INTO student_course(sid,cid) VALUES
