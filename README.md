@@ -120,10 +120,10 @@
 ## Python Pages
 
 ### [project.py](project.py)
-The main script for running the application.
+The login page through which mainpage is attached
 
 ### [main.py](main.py)
-Contains the main application logic and functions.
+Contains the main page or dashboard.
 
 ## Steps to Access the Application
 
