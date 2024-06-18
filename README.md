@@ -119,10 +119,10 @@
 
 ## Python Pages
 
-### [](project.py)
+### [project.py](project.py)
 The main script for running the application.
 
-### [](main.py)
+### [main.py](main.py)
 Contains the main application logic and functions.
 
 ## Steps to Access the Application
