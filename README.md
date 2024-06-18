@@ -1,8 +1,8 @@
 # Futurense LMS
 ## Index:
 1. [Database](#Database-Schema-for-Futurense)
+2. [Project overview and Instructions](#Project-Overview) -- Check this for instructions 
 
-2. 
 # Database Schema for Futurense
 ## Tables and Attributes
 
