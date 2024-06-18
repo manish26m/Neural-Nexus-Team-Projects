@@ -1,5 +1,9 @@
-# Database Schema for Futurense
+# Futurense LMS
+## Index:
+1. [Database](readme.md/#Database Schema for Futurense)
 
+2. 
+# Database Schema for Futurense
 ## Tables and Attributes
 
 ### student
