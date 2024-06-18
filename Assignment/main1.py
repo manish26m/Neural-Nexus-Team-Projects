@@ -8,9 +8,11 @@ class Assignment:
         self.root = root
         self.root.title("Login")
         self.root.geometry("600x600")
+        self.root.configure(bg="#f0f0f0")
 
         self.frame_login = ttk.Frame(self.root, padding="10")
         self.frame_login.pack(fill=tk.BOTH, expand=True)
+        self.frame_login.configure(style="Login.TFrame")
 
         self.title_label = ttk.Label(self.frame_login, text="Login", font=("Helvetica", 24, "bold"), foreground="#333")
         self.title_label.pack(pady=10)
@@ -23,18 +25,16 @@ class Assignment:
 
         self.login_button = ttk.Button(self.frame_login, text="Login", command=lambda: self.login(self.entry_student_id), padding="10")
         self.login_button.pack(pady=10)
+        self.login_button.configure(style="Accent.TButton")
 
     def upload_file(self, label):
-        # Open file dialog to select a file
         file_path = filedialog.askopenfilename()
         if file_path:
-            # Display the selected file path
             label.config(text=f"Selected file: {file_path}")
             messagebox.showinfo("Upload File", "File uploaded successfully")
 
     def get_assignments(self, student_id):
         try:
-            # Connect to the database
             conn = mysql.connector.connect(
                 host='127.0.0.1',
                 user='neuralnexus',
@@ -43,7 +43,6 @@ class Assignment:
             )
             cursor = conn.cursor()
 
-            # Query to fetch assignments for the student
             query = '''
             SELECT Assignment.assignment_name, Assignment.description, Assignment.deadline
             FROM Assignment
@@ -69,6 +68,7 @@ class Assignment:
             for assignment in assignments:
                 assignment_frame = ttk.Frame(self.frame_assignments, padding="10")
                 assignment_frame.pack(fill=tk.X, pady=10)
+                assignment_frame.configure(style="Card.TFrame")
 
                 assignment_label = ttk.Label(assignment_frame, text=f"{assignment[0]}", font=("Helvetica", 18, "bold"), foreground="#333")
                 assignment_label.pack(side=tk.LEFT, padx=20)
@@ -87,6 +87,7 @@ class Assignment:
 
                 upload_button = ttk.Button(assignment_frame, text="Upload File", command=lambda l=file_label: self.upload_file(l), padding="10")
                 upload_button.pack(side=tk.RIGHT, padx=10)
+                upload_button.configure(style="Accent.TButton")
 
         else:
             message = ttk.Label(self.frame_assignments, text="No assignments found for this student", font=("Helvetica", 14), foreground="#666")
@@ -99,42 +100,48 @@ class Assignment:
             messagebox.showerror("Invalid Input", "Please enter a valid student ID")
             return
 
-        # Clear the main window's content
         for widget in self.root.winfo_children():
             widget.destroy()
 
-        # Show the assignments window content
         self.show_assignments_window(student_id)
 
     def show_assignments_window(self, student_id):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+
         self.frame_header = ttk.Frame(self.root, padding="10")
         self.frame_header.pack(fill=tk.X)
+        self.frame_header.configure(style="Header.TFrame")
 
-        self.title_label = ttk.Label(self.frame_header, text="Student Assignments", font=("Helvetica", 24, "bold"), foreground="#333")
+        self.title_label = ttk.Label(self.frame_header, text="Student Assignments", font=("Helvetica", 24, "bold"), foreground="#000")
         self.title_label.pack(pady=10)
 
-        self.frame_navbar = ttk.Frame(self.root, padding="10")
-        self.frame_navbar.pack(fill=tk.X)
+        self.frame_navbar = ttk.Frame(self.root, padding="10", style="Navbar.TFrame")
+        self.frame_navbar.pack(side=tk.LEFT, fill=tk.Y, expand=False, anchor="nw")
 
         self.dashboard_button = ttk.Button(self.frame_navbar, text="Dashboard", padding="10")
-        self.dashboard_button.pack(side=tk.LEFT, padx=10)
+        self.dashboard_button.pack(pady=10, fill=tk.X)
+        self.dashboard_button.configure(style="Navbar.TButton")
 
         self.assignments_button = ttk.Button(self.frame_navbar, text="Assignments", padding="10")
-        self.assignments_button.pack(side=tk.LEFT, padx=10)
+        self.assignments_button.pack(pady=10, fill=tk.X)
+        self.assignments_button.configure(style="Navbar.TButton")
 
         self.grades_button = ttk.Button(self.frame_navbar, text="Grades", padding="10")
-        self.grades_button.pack(side=tk.LEFT, padx=10)
+        self.grades_button.pack(pady=10, fill=tk.X)
+        self.grades_button.configure(style="Navbar.TButton")
 
         self.frame_profile = ttk.Frame(self.root, padding="10")
         self.frame_profile.pack(fill=tk.X)
+        self.frame_profile.configure(style="Profile.TFrame")
 
         self.profile_title_label = ttk.Label(self.frame_profile, text="Student Profile", font=("Helvetica", 18, "bold"), foreground="#333")
         self.profile_title_label.pack(pady=10)
 
         self.profile_frame = ttk.Frame(self.frame_profile, padding="10")
         self.profile_frame.pack(fill=tk.X, padx=20)
+        self.profile_frame.configure(style="Profile.TFrame")
 
-        # Fetch student data from database
         conn = mysql.connector.connect(
             host='127.0.0.1',
             user='neuralnexus',
@@ -162,16 +169,28 @@ class Assignment:
         self.email_value_label.grid(row=1, column=1, padx=10)
 
         self.frame_assignments = ttk.Frame(self.root, padding="10")
-        self.frame_assignments.pack(fill=tk.BOTH, expand=True)
+        self.frame_assignments.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.frame_assignments.configure(style="Assignments.TFrame")
 
         self.show_assignments(student_id)
 
-        # Update the main window
         self.root.title("Student Assignments")
         self.root.geometry("1200x800")
+
 root = tk.Tk()
+
 def start():
-    
+    style = ttk.Style()
+    style.configure("Login.TFrame", background="#f0f0f0")
+    style.configure("Header.TFrame", background="#333")
+    style.configure("Navbar.TFrame", background="#333")
+    style.configure("Navbar.TButton", background="#333", foreground="#555", font=("Helvetica", 14))
+    style.configure("Profile.TFrame", background="#f0f0f0")
+    style.configure("Assignments.TFrame", background="#fff")
+    style.configure("Card.TFrame", background="#f9f9f9", relief=tk.RAISED, borderwidth=2)
+    style.configure("Accent.TButton", background="#4caf50", foreground="#555", font=("Helvetica", 14), padding=10)
+
     assignment = Assignment(root)
     root.mainloop()
+
 start()
