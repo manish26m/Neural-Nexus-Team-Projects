@@ -5,16 +5,16 @@ from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
 from tkinter import messagebox
 import subprocess
-from Assignment.main1 import *
-username = "neuralnexus"
-password = "neuralnexus@01"
+
+username = "root"
+password = "Tiya1221"
 
 # MySQL connection code
 my_db = mysql.connector.connect(
-    host="127.0.0.1",
+    host="localhost",
     user=username,
     passwd=password,
-    database="futurense"
+    database="lms"
 )
 cursor = my_db.cursor()
 cursor.execute("SHOW TABLES")
@@ -58,7 +58,7 @@ def create_card_button(window, text, image_path, command, x, y,raise_distance=5)
 def button_command():
     print("Button clicked")
 create_card_button(window,"Show Courses", "main_page/course.jpg", button_command, 100, 150)
-create_card_button(window,"Show Assignments", "main_page/assignment.jpg", start(), 100, 450)
+create_card_button(window,"Show Assignments", "main_page/assignment.jpg",button_command, 100, 450)
 # Toggle function to show/hide the left column
 
 left_column_width = 0.25 * 1366  # 25% of the window width

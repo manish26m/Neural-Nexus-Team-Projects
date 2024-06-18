@@ -174,4 +174,3 @@ def start():
     
     assignment = Assignment(root)
     root.mainloop()
-start()
