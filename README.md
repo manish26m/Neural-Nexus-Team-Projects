@@ -154,9 +154,13 @@ Contains the main page or dashboard.
    - Use the following credentials to login:
      - **Email:** `ravi@example.com`
      - **Password:** `password123`
+   - For testing Forgot password write the asked credentials the `OTP` will be generated in command line.
+   - Enter it and password wil be changed
 
 6. **Navigate the Application**
-   - Once logged in, you will see the main page with buttons.
+   - Once logged in, it will take **5-10 secs** for dasboard to open
+   - Then, you will see the main page with buttons.
    - Click on the "Profile" button to toggle the profile view.
 
 That's what has been done so far in the project.
+***Currently the attendance and course page is being added by [Vaibhav](@vaibhavtamang12) and [Punit](@punitkumar4871) respectively.***
