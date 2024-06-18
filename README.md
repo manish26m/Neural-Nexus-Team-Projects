@@ -106,7 +106,53 @@
 - Each assignment is given by one teacher.
 - **One-to-Many (1:N)**
 
-## ER Diagram
-![ER diagram (2)](https://github.com/yashvisharma1204/Neural-Nexus/assets/137611141/cd804181-ceb9-4476-a1ec-2401b31abd1b)
+## ER diagram
+![ER diagram (2)](https://github.com/yashvisharma1204/Neural-Nexus/assets/137611141/e1f9ed1f-1cad-4d2f-bfeb-ec6ba507e940)
 
 ---
+# Project Overview
+
+## Technologies Used
+- Python
+- MySQL Connectivity
+- Tkinter
+
+## Python Pages
+
+### ()[project.py]
+The main script for running the application.
+
+### ()[main.py]
+Contains the main application logic and functions.
+
+## Steps to Access the Application
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yashvisharma1204/Neural-Nexus
+   ```
+   
+2. **Save the `lms.sql` file in your MySQL Workbench**
+   - Open MySQL Workbench.
+   - Open the `lms.sql` file and execute it to set up the database schema.
+
+3. **Configure MySQL Connection**
+   - Open `main.py` and `project.py`.
+   - Locate the MySQL connection function and add your MySQL Workbench username and password.
+
+4. **Run the Application**
+   - Run `project.py` using the command:
+     ```bash
+     python project.py
+     ```
+
+5. **Login**
+   - Use the following credentials to login:
+     - **Email:** `ravi@example.com`
+     - **Password:** `password123`
+
+6. **Navigate the Application**
+   - Once logged in, you will see the main page with buttons.
+   - Click on the "Profile" button to toggle the profile view.
+
+That's what has been done so far in the project.
