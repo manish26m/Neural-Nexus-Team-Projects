@@ -76,7 +76,7 @@ CREATE TABLE submissions (
     file_path VARCHAR(255),
     submission_date DATETIME
 );
-drop database futurense;
+
 
 INSERT INTO student (sname, phonenumber, age, gender, email, address, password) VALUES
 ('Ravi Kumar', '987654321', 21, 'Male', 'ravi@example.com', 'Delhi, India', 'password123'),
@@ -145,13 +145,5 @@ INSERT INTO Assignment (assignment_name, description, deadline, cid, tid) VALUES
 
 ('CS Assignment 1', 'Programming in Python', '2024-07-01', 5, 5),
 
-('CS Assignment 2', 'Programming in Python', '2024-07-01', 5, 5),
-('Math Assignment 2', 'Algebra problems', '2024-07-01', 1, 1),
-('Physics Assignment 2', 'Mechanics problems', '2024-07-01', 2, 2),
-('Chemistry Assignment 2', 'Organic chemistry problems', '2024-07-01', 3, 3),
-('Biology Assignment 2', 'Cell biology questions', '2024-07-01', 4, 4),
-
-('CS Assignment 2', 'Programming in Python', '2024-07-01', 5, 5),
-
-('CS Assignment 2', 'Programming in Python', '2024-07-01', 5, 5);
+('CS Assignment 1', 'Programming in Python', '2024-07-01', 5, 5);
 

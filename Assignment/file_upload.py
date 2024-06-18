@@ -7,6 +7,7 @@ def upload_file():
     if file_path:
         # Display the selected file path
         label.config(text=f"Selected file: {file_path}")
+        messagebox.showinfo("Upload File", "File uploaded successfully")
 
 # Create the main window
 '''root = tk.Tk()
