@@ -6,8 +6,8 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 import subprocess
 from Assignment.main1 import *
-username = "neuralnexus"
-password = "neuralnexus@01"
+username = "root"
+password = "tiya1221"
 
 # MySQL connection code
 my_db = mysql.connector.connect(
