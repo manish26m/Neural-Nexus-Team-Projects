@@ -1,6 +1,6 @@
 # Futurense LMS
 ## Index:
-1. [Database](#Database Schema for Futurense)
+1. [Database](#Database-Schema-for-Futurense)
 
 2. 
 # Database Schema for Futurense
