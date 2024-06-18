@@ -134,7 +134,7 @@ header_canvas.pack(fill='both', expand=True)
 
 # Load the image
 image = Image.open('background2.jpeg')
-image = image.resize((230, 150), Image.ANTIALIAS)  # Adjust size as necessary
+image = image.resize((230, 150), Image.LANCZOS)  # Adjust size as necessary
 photo = ImageTk.PhotoImage(image)
 
 # Add image to the Canvas
