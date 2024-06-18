@@ -103,6 +103,17 @@ INSERT INTO course (cid,cname, tid) VALUES
 (40,'Software Engineering', 16),
 (41,'Python',17);
 
+delete from course;
+
+INSERT INTO course (cid,cname, tid) VALUES
+(36,'Mathematics', 12),
+(37,'DSA', 13),
+(38,'DBMS', 14),
+(39,'Data communication and networking', 15),
+(40,'Software Engineering', 16),
+(41,'Python',17);
+
+
 
 INSERT INTO Attendance (sid, cid, attendance_date, status) VALUES
 (1, 36, '2024-06-01', 'Present'),
