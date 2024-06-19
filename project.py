@@ -16,7 +16,7 @@ my_db = mysql.connector.connect(
     host="localhost",
     user=username,
     passwd=password,
-    database="lms"
+    database="futurense"
 )
 cursor= my_db.cursor()
 cursor.execute("SHOW TABLES")
@@ -36,7 +36,7 @@ from PIL import Image, ImageTk
     print(row)  # This might print large data in a single line, adjust for readability
 
   print("\n")  # Add a newline between tables'''
-window = tb.Window(themename="darkly")
+window = tb.Window()
 window.geometry("1366x768")
 window.title("Futurense")
 logo_path = "login_page/lms-2.png"      
@@ -231,7 +231,7 @@ def forgot_password():
 # Load the image
 icon_path="login_page/lms3.png"
 image = Image.open("login_page/lms1.png")
-image = image.resize((1900// 2, 1000))  # Resize image to half width
+image = image.resize((1900// 2, 1300))  # Resize image to half width
 photo = ImageTk.PhotoImage(image)
 
 # Create a label for the image
@@ -266,12 +266,12 @@ title_label5.pack(padx=0,pady=20)  # Add padding for spacing
 
 
 # Username label and entry
-user_label = Label(login_frame, text="Username", font=("Times", 12),bg='white',fg='black')
+user_label = Label(login_frame, text="Username", font=("Times", 12,'bold'),bg='white',fg='black')
 user_label.pack(pady=10)
 user_entry = ttk.Entry(login_frame, font=("Helvetica", 14), width=50)
 user_entry.pack(pady=5)
 
-password_label = Label(login_frame, text="Password", font=("Times", 12),bg='white',fg='black')
+password_label = Label(login_frame, text="Password", font=("Times", 12,'bold'),bg='white',fg='black')
 password_label.pack(pady=10)
 password_entry = ttk.Entry(login_frame, font=("Helvetica", 14), show="*", width=50)
 password_entry.pack(pady=5)
@@ -299,7 +299,7 @@ login_button.pack(pady=15, padx=20, ipadx=30, ipady=10)  # Add padding and inter
 '''
 # Create a style
 button_style = ttk.Style()
-button_style.configure("CustomButton.TButton", font=("Times", 14),background="lightblue")  # Add background color if desired
+button_style.configure("CustomButton.TButton", font=("Times", 14),)  # Add background color if desired
 login_button = ttk.Button(login_frame, text="Login", style="CustomButton", command=login).pack(pady=15, padx=20, ipadx=30, ipady=10)
 
 # Create the login button with the custom style
