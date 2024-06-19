@@ -126,7 +126,7 @@ def open_course_page(course_id):
 
         # Profile photo
         # Load image for profile (assuming you want it in the blank frame)
-        profile_image = Image.open("profile.png")  # Replace with your image file
+        profile_image = Image.open("grade_page/profile.png")  # Replace with your image file
         profile_image = profile_image.resize((200, 200))  # Resize image as needed
         profile_photo = ImageTk.PhotoImage(profile_image)
 
@@ -157,7 +157,7 @@ window.geometry("1366x768")
 window.title("Futurense")
 
 # Background image for the main window
-bg_image = Image.open("white4.png")
+bg_image = Image.open("grade_page/white4.png")
 bg_image = bg_image.resize((1550, 768))
 bg_photo = ImageTk.PhotoImage(bg_image)
 
@@ -168,7 +168,7 @@ canvas.create_image(0, 0, image=bg_photo, anchor="nw")
 # Configure main window background to be transparent
 window.configure(bg='black')
 
-logo_path = "lms-2.ico"
+logo_path = "login_page/lms-2.ico"
 window.iconbitmap(logo_path)
 
 # Create frame1 with white background
@@ -176,7 +176,7 @@ frame1 = tk.Frame(window, bg="white")
 frame1.place(relx=0.62, rely=0.70, anchor=tk.CENTER, width=1400, height=620)
 
 # Background image for frame1
-frame1_bg_image = Image.open("white4.png")
+frame1_bg_image = Image.open("grade_page/white4.png")
 frame1_bg_image = frame1_bg_image.resize((1400, 620))
 frame1_bg_photo = ImageTk.PhotoImage(frame1_bg_image)
 
