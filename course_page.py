@@ -110,7 +110,7 @@ class CoursesApp(tk.Tk):
         self.top_canvas.pack(side=tk.TOP, fill=tk.X)
         
         # Right logo
-        logo_path = r"C:\Users\Kumari\OneDrive\Desktop\coding\bootcamp\right.jpeg"
+        logo_path = "backgroung3.jpeg"
         logo = Image.open(logo_path)
         logo = logo.resize((100, 100), Image.LANCZOS)
         self.logo_image = ImageTk.PhotoImage(logo)
