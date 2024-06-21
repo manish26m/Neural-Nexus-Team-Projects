@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 import mysql.connector
+import subprocess
 
 class CoursesApp(tk.Tk):
     def __init__(self):
@@ -52,18 +53,22 @@ class CoursesApp(tk.Tk):
         courses_label = tk.Label(self.top_canvas, text="MY COURSES", bg='black', fg='white', font=('Arial', 24, 'bold'))
         courses_label.place(relx=0.5, rely=0.5, anchor='center')
 
-        # Sidebar button
-         # Adjusted to place below right logo and smaller
-
         # Sidebar frame
         self.sidebar_frame = tk.Frame(self, bg='black', width=200)  # Changed bg to black
         self.sidebar_frame.pack(side=tk.LEFT, fill=tk.Y)
         self.sidebar_frame.pack_propagate(False)
 
-        sidebar_buttons = ["Profile", "Grades", "Logout", "Support"]
-        for btn_text in sidebar_buttons:
-            btn = tk.Button(self.sidebar_frame, text=btn_text, bg='black', fg='white', font=('Arial', 12))  # Changed bg to black and fg to white
-            btn.pack(fill=tk.X, pady=10, padx=10)  # Adjusted padding for vertical spacing
+        sidebar_buttons = [
+            ("Dashboard", lambda: self.open_app('main.py')),
+            ("Attendance", lambda:self.open_app('attendance.py')),
+            ("Assignment", lambda:self.open_app('Assignment/main1.py')),
+            ("Exams", lambda:self.open_app('exam.py')),
+            ("Grades", lambda:self.open_app('grade.py'))
+        ]
+        
+        for btn_text, command_func in sidebar_buttons:
+            btn = tk.Button(self.sidebar_frame, text=btn_text, bg='black', fg='white', font=('Arial', 12), command=command_func)
+            btn.pack(fill=tk.X, pady=20, padx=20)  # Adjusted padding for vertical spacing
 
         self.sidebar_visible = True
 
@@ -85,15 +90,9 @@ class CoursesApp(tk.Tk):
         self.cursor.execute("SELECT cid, cname, tid FROM course")
         self.courses_data = self.cursor.fetchall()  # Assuming a list of tuples (cid, cname, tid)
 
-    def toggle_sidebar(self):
-        if self.sidebar_visible:
-            self.sidebar_frame.pack_forget()
-            self.courses_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=20, pady=20)
-        else:
-            self.sidebar_frame.pack(side=tk.LEFT, fill=tk.Y)
-            self.courses_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=20, pady=20)
-
-        self.sidebar_visible = not self.sidebar_visible
+    def open_app(self,x):
+        self.destroy()
+        subprocess.Popen(['python',x])
 
     def create_course_cards(self, parent, courses):
         self.course_cards = []
@@ -161,8 +160,7 @@ class CoursesApp(tk.Tk):
             CourseDetailsWindow(self, course[1], teacher_name, enrollment_count)
         else:
             print(f"No teacher found for course {course[1]}")
-        sidebar_btn = tk.Button(self.top_canvas, text="Menu", bg='white', font=('Arial', 10), command=self.toggle_sidebar)
-        sidebar_btn.place(relx=0.9, rely=1, anchor='center')
+
 class CourseDetailsWindow(tk.Toplevel):
     def __init__(self, master, course_name, teacher_name, enrollment_count):
         super().__init__(master)
@@ -200,8 +198,7 @@ class CourseDetailsWindow(tk.Toplevel):
         # Display number of students enrolled
         enrollment_label = tk.Label(self, text=f"Students Enrolled: {enrollment_count}", font=('Georgia', 14,'bold'))
         enrollment_label.pack(pady=10)
-
-
+        
 if __name__ == "__main__":
     app = CoursesApp()
     app.mainloop()

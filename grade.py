@@ -1,3 +1,4 @@
+import subprocess
 from tkinter import *
 import tkinter as tk
 import mysql.connector
@@ -216,13 +217,19 @@ for idx, (course_id, course_name) in enumerate(courses):
 left_column_width = 0.15 * 1366
 left_column_frame = Frame(window, width=left_column_width, bg='gray16')
 left_column_frame.place(x=0, y=0, relheight=1, anchor='nw')
-
-dash_button = Button(left_column_frame, text="DASHBOARD", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15)
-dash_button.place(x=20, y=200)
-assin_button = Button(left_column_frame, text="ASSIGNMENT", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15)
-assin_button.place(x=20, y=400)
-attendance_button = Button(left_column_frame, text="ATTENDANCE", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15)
-attendance_button.place(x=20, y=600)
+def open_app(x):
+        window.destroy()
+        subprocess.Popen(['python',x])
+dash_button = Button(left_column_frame, text="DASHBOARD", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('main.py'))
+dash_button.place(x=20, y=150)
+assin_button = Button(left_column_frame, text="ASSIGNMENT", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('Assignment/main1.py'))
+assin_button.place(x=20, y=250)
+attendance_button = Button(left_column_frame, text="ATTENDANCE", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('attendance.py'))
+attendance_button.place(x=20, y=350)
+assin_button = Button(left_column_frame, text="EXAMS", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('exam.py'))
+assin_button.place(x=20, y=450)
+attendance_button = Button(left_column_frame, text="COURSES", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('grade.py'))
+attendance_button.place(x=20, y=550)
 
 # Function to toggle left column visibility
 left_column_visible = True
