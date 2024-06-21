@@ -50,4 +50,10 @@ Contains the main page or dashboard.
    - Click on the "Profile" button to toggle the profile view.
      
 7. **Navigate to other section**
-   - 
+   - Click on the buttons of pages you want to explore
+   - Each button will open new pages and its related content
+  
+8. **Log out:**
+   - Come back to dashboard and click on the logout button on upper side
+   - It will bring you back to login page
+8. 
