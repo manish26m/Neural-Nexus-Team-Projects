@@ -9,7 +9,7 @@ from tkinter import messagebox
 import random
 
 username = "root"
-password = "30127"
+password = "Tiya1221"
 
 # MySQL connection code
 my_db = mysql.connector.connect(

@@ -2,33 +2,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import mysql.connector
 from PIL import Image, ImageTk
-
 import subprocess
-
-
-def open_dash_app(root):
-    try:
-        
-        subprocess.Popen(["python", "main.py"])
-        root.destroy()
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-
-def open_grade_app(root):
-    try:
-        subprocess.Popen(["python", "grade.py"])
-        root.destroy()
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-def open_wer_app(root):
-    try:
-        subprocess.Popen(["python", "attendance.py"])
-        root.destroy()
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
 
 class Assignment:
     def __init__(self, root, student_id):
@@ -42,20 +16,26 @@ class Assignment:
         self.frame_header.pack(fill=tk.X)
         self.frame_header.configure(style="Header.TFrame")
 
-        self.title_label = ttk.Label(self.frame_header, text="Student Assignments", font=("Helvetica", 24, "bold"), style="1DarkText.TLabel")
+        self.title_label = ttk.Label(self.frame_header, text="Student Assignments", font=("Georgia", 30, "bold"), style="1DarkText.TLabel")
         self.title_label.pack(pady=10)
 
         self.frame_navbar = ttk.Frame(self.root, padding="10", style="Navbar.TFrame")
         self.frame_navbar.pack(side=tk.LEFT, fill=tk.Y, expand=False, anchor="nw")
 
-        self.dashboard_button = ttk.Button(self.frame_navbar, text="Dashboard",command=lambda:open_dash_app(root), style="Navbar.TButton")
+        self.dashboard_button = ttk.Button(self.frame_navbar, text="Dashboard", command=lambda: self.open_dash_app(root), style="Navbar.TButton")
         self.dashboard_button.pack(pady=10, fill=tk.X)
 
-        self.assignments_button = ttk.Button(self.frame_navbar, text="Grade",command=lambda:open_grade_app(root), style="Navbar.TButton")
+        self.assignments_button = ttk.Button(self.frame_navbar, text="Grade", command=lambda: self.open_grade_app(root), style="Navbar.TButton")
         self.assignments_button.pack(pady=10, fill=tk.X)
 
-        self.grades_button = ttk.Button(self.frame_navbar, text="Attendance",command=lambda:open_wer_app(root), style="Navbar.TButton")
+        self.grades_button = ttk.Button(self.frame_navbar, text="Attendance", command=lambda: self.open_wer_app(root), style="Navbar.TButton")
         self.grades_button.pack(pady=10, fill=tk.X)
+        
+        self.exams_button = ttk.Button(self.frame_navbar, text="Exams", command=lambda: self.open_exam_app(root), style="Navbar.TButton")
+        self.exams_button.pack(pady=10, fill=tk.X)
+
+        self.course_button = ttk.Button(self.frame_navbar, text="Course", command=lambda: self.open_course_app(root), style="Navbar.TButton")
+        self.course_button.pack(pady=10, fill=tk.X)
 
         self.frame_profile = ttk.Frame(self.root, padding="10")
         self.frame_profile.pack(fill=tk.X)
@@ -69,9 +49,9 @@ class Assignment:
         self.profile_frame.configure(style="Profile.TFrame")
 
         conn = mysql.connector.connect(
-            host='127.0.0.1',
-            user='neuralnexus',
-            password='neuralnexus@01',
+            host='localhost',
+            user='root',
+            password='Tiya1221',
             database='futurense'
         )
         cursor = conn.cursor()
@@ -94,9 +74,16 @@ class Assignment:
         self.email_value_label = ttk.Label(self.profile_frame, text=student_data[1], font=("Helvetica", 14), style="LightText.TLabel")
         self.email_value_label.grid(row=1, column=1, padx=10)
 
-        self.frame_assignments = ttk.Frame(self.root, padding="10")
-        self.frame_assignments.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        self.frame_assignments.configure(style="Assignments.TFrame")
+        self.canvas = tk.Canvas(self.root, bg="#f0f0f0")
+        self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        self.scrollbar = ttk.Scrollbar(self.root, orient=tk.VERTICAL, command=self.canvas.yview)
+        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+        
+        self.frame_assignments = ttk.Frame(self.canvas, padding="2")
+        self.canvas.create_window((100, 0), window=self.frame_assignments, anchor=tk.NW)
 
         self.show_assignments(student_id)
 
@@ -109,9 +96,9 @@ class Assignment:
     def get_assignments(self, student_id):
         try:
             conn = mysql.connector.connect(
-                host='127.0.0.1',
-                user='neuralnexus',
-                password='neuralnexus@01',
+                host='localhost',
+                user='root',
+                password='Tiya1221',
                 database='futurense'
             )
             cursor = conn.cursor()
@@ -120,7 +107,8 @@ class Assignment:
             SELECT Assignment.assignment_name, Assignment.description, Assignment.deadline
             FROM Assignment
             JOIN course ON Assignment.cid = course.cid
-            WHERE course.sid= %s
+            JOIN student_course ON course.cid = student_course.cid
+            WHERE student_course.sid = %s;
             '''
             cursor.execute(query, (student_id,))
             assignments = cursor.fetchall()
@@ -165,16 +153,49 @@ class Assignment:
             message = ttk.Label(self.frame_assignments, text="No assignments found for this student", font=("Helvetica", 14), style="LightText.TLabel")
             message.pack(anchor="w")
 
+    def open_dash_app(self, root):
+        try:
+            subprocess.Popen(["python", "main.py"])
+            root.destroy()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+    def open_grade_app(self, root):
+        try:
+            subprocess.Popen(["python", "grade.py"])
+            root.destroy()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+    def open_wer_app(self, root):
+        try:
+            subprocess.Popen(["python", "attendance.py"])
+            root.destroy()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+    def open_course_app(self, root):
+        try:
+            subprocess.Popen(["python", "course_page.py"])
+            root.destroy()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+    def open_exam_app(self, root):
+        try:
+            subprocess.Popen(["python", "exam.py"])
+            root.destroy()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
 def start():
     with open("log.txt", "r") as f:
         student_id = f.read().strip()
 
-    conn = mysql.connector.connect(
-                host='127.0.0.1',
-                user='neuralnexus',
-                password='neuralnexus@01',
-                database='futurense'
-            )
+    conn = mysql.connector.connect( 
+            host='localhost',
+            user='root',
+            password='Tiya1221',
+            database='futurense'
+    )
     cursor = conn.cursor()
 
     query='''Select sid from student where email= %s'''
@@ -183,15 +204,15 @@ def start():
 
     root = tk.Tk()
     style = ttk.Style()
-    style.configure("Login.TFrame", background="#f0f0f0")
-    style.configure("Header.TFrame", background="#292929")
-    style.configure("Navbar.TFrame", background="#292929")
-    style.configure("Navbar.TButton", background="#fff", foreground="#000", font=("Helvetica", 14), padding=10)
+    style.configure("Login.TFrame", background="#292929")
+    style.configure("Header.TFrame", background="black")
+    style.configure("Navbar.TFrame", background="#000000")
+    style.configure("Navbar.TButton",background="#000", foreground="#000", font=("Helvetica", 14), padding=10)
     style.configure("Profile.TFrame", background="#f0f0f0")
     style.configure("Assignments.TFrame", background="#fff")
-    style.configure("Card.TFrame", background="#daa520")
+    style.configure("Card.TFrame", background="goldenrod2")
     style.configure("Accent.TButton", background="#7A288A", foreground="#000", font=("Helvetica", 14), padding=10)
-    style.configure("1DarkText.TLabel", background="#292929", foreground="#fff")
+    style.configure("1DarkText.TLabel", background="#000000", foreground="#fff")
     style.configure("DarkText.TLabel", background="#f0f0f0", foreground="#333")
     style.configure("2DarkText.TLabel", background="#daa520", foreground="#000")
     style.configure("LightText.TLabel", background="#f0f0f0", foreground="#333")
@@ -202,4 +223,5 @@ def start():
 
 def lemon():
     start()
+
 lemon()

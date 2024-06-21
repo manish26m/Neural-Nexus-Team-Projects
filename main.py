@@ -55,10 +55,11 @@ def create_card_button(window, text, image_path, command, x, y,raise_distance=5)
     return button
 
 # Function definitions for button commands
-def button_command():
-    print("Button clicked")
-create_card_button(window,"Show Courses", "main_page/course.jpg", button_command, 100, 150)
-create_card_button(window,"Show Assignments", "main_page/assignment.jpg",button_command, 100, 450)
+def button_command(x):
+    window.destroy()
+    subprocess.Popen(['python',x])
+create_card_button(window,"Show Courses", "main_page/course.jpg", lambda:button_command('course_page.py'), 100, 150)
+create_card_button(window,"Show Assignments", "main_page/assignment.jpg",lambda:button_command('Assignment/main1.py'), 100, 450)
 # Toggle function to show/hide the left column
 
 left_column_width = 0.25 * 1366  # 25% of the window width
@@ -122,9 +123,9 @@ toggle_button = Button(window, image=icon_photo, command=toggle_left_column, bor
 toggle_button.place(x=1200, y=150)  # Place the button in the middle below the header
 
 # Create card buttons directly on the window
-create_card_button(window,"Show Attendance", "main_page/attendance.jpg", button_command, 480, 300)
-create_card_button(window,"Show Grades", "main_page/grades.jpg", button_command, 850, 450)
-create_card_button(window,"Show Exams", "main_page/exams.jpg", button_command, 850, 150)
+create_card_button(window,"Show Attendance", "main_page/attendance.jpg", lambda:button_command('attendance.py'), 480, 300)
+create_card_button(window,"Show Grades", "main_page/grades.jpg", lambda:button_command('grade.py'), 850, 450)
+create_card_button(window,"Show Exams", "main_page/exams.jpg", lambda:button_command('exam.py'), 850, 150)
 header_frame = Frame(window, height=120, bg='black')
 header_frame.place(x=0, y=0, relwidth=1)
 

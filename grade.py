@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 # MySQL connection details
 username = "root"
-password = "30127"
+password = "Tiya1221"
 database = "futurense"
 
 # Function to connect to MySQL database
