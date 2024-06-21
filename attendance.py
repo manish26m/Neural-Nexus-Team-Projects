@@ -3,7 +3,7 @@ import mysql.connector
 from PIL import Image, ImageTk
 import subprocess
 username = "root"
-password = "vaibhav"
+password = "Tiya1221"
 
 my_db = mysql.connector.connect(
     host="localhost",
@@ -77,6 +77,9 @@ def assignment():
     root.destroy()
     subprocess.run(["python", "Assignment/main1.py"])
 
+def exams():
+    root.destroy()
+    subprocess.run(["python", "exam.py"])
 root = tk.Tk()
 root.title("Attendance")
 root.geometry("1920x1080")
@@ -124,7 +127,7 @@ button3.pack(pady=15)
 button4 = tk.Button(sidebar, text="Show Grades", bg="black", fg="white", command=grade)
 button4.pack(pady=15)
 
-button5 = tk.Button(sidebar, text="Show Exams", bg="black", fg="white")
+button5 = tk.Button(sidebar, text="Show Exams", bg="black", fg="white", command=exams)
 button5.pack(pady=15)
 
 # Create subject frame

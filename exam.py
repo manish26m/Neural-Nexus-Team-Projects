@@ -3,10 +3,10 @@ import tkinter as tk
 import mysql.connector
 from PIL import Image, ImageTk
 from tkinter import messagebox
-
+import subprocess
 # MySQL connection details
 username = "root"
-password = "30127"
+password = "Tiya1221"
 database = "futurense"
 
 # Function to connect to MySQL database
@@ -62,14 +62,14 @@ window.geometry("1366x768")
 window.title("Futurense")
 
 # Configure main window background to be transparent
-window.configure(bg='black')
+window.configure(bg='white')
 
-logo_path = "lms-2.ico"
+logo_path = "login_page/lms-2.ico"
 window.iconbitmap(logo_path)
 
 # Create frame1 with white background
 frame1 = tk.Frame(window, bg="white")
-frame1.place(relx=0.57, rely=0.6, anchor=tk.CENTER, width=1000, height=450)
+frame1.place(relx=0.53, rely=0.55, anchor=tk.CENTER, width=1100, height=500)
 
 # Background image for frame1
 '''frame1_bg_image = Image.open("white4.png")
@@ -95,16 +95,20 @@ row_gap = (576 - 2 * frame_height) / 3  # Gap between rows based on available he
 left_column_width = 0.15 * 1366
 left_column_frame = Frame(window, width=left_column_width, bg='gray16')
 left_column_frame.place(x=0, y=0, relheight=1, anchor='nw')
+def open_app(x):
+    window.destroy()
+    subprocess.Popen(['python', x])
 
-dash_button = Button(left_column_frame, text="DASHBOARD", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15)
-dash_button.place(x=20, y=200)
-assin_button = Button(left_column_frame, text="ASSIGNMENT", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15)
-assin_button.place(x=20, y=360)
-attendance_button = Button(left_column_frame, text="ATTENDANCE", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15)
-attendance_button.place(x=20, y=520)
-dash_button = Button(left_column_frame, text="MY COURSES", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15)
-dash_button.place(x=20, y=670)
-
+dash_button = Button(left_column_frame, text="DASHBOARD", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('main.py'))
+dash_button.place(x=20, y=150)
+assin_button = Button(left_column_frame, text="ASSIGNMENT", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('main.py'))
+assin_button.place(x=20, y=250)
+attendance_button = Button(left_column_frame, text="ATTENDANCE", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('attendance.py'))
+attendance_button.place(x=20, y=350)
+dash_button = Button(left_column_frame, text="COURSES", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('course_page.py'))
+dash_button.place(x=20, y=450)
+dash_button = Button(left_column_frame, text="GRADES", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('grade.py'))
+dash_button.place(x=20, y=550)
 # Function to toggle left column visibility
 left_column_visible = True
 def toggle_left_column():
@@ -116,8 +120,8 @@ def toggle_left_column():
         left_column_frame.place(x=0, y=0, relheight=1, anchor='nw')
         left_column_visible = True
 
-toggle_button = tk.Button(window, text="☰", command=toggle_left_column, borderwidth=0, bg="white", fg="black")
-toggle_button.place(x=1500, y=150)
+toggle_button = tk.Button(window, text="☰", command=toggle_left_column, borderwidth=0, bg="black", fg="white")
+toggle_button.place(x=1200, y=150)
 
 # Header frame
 header_frame = Frame(window, height=120, bg='black')
@@ -147,7 +151,7 @@ def display_exam_details():
     # Define column headers
     headers = ["EXAM NAME", "STUDENT NAME", "DATE", "Course Name", "Teacher Name", "Grade", "Status"]
     for col, header in enumerate(headers):
-        label = Label(table_frame, text=header, bg="white", fg="purple4",font=("Helvetica", 10, "bold"), borderwidth=2, relief="groove")
+        label = Label(table_frame, text=header, bg="purple4", fg="white",font=("Helvetica", 13, "bold"), borderwidth=2, relief="groove",pady=12)
         label.grid(row=0, column=col, sticky="nsew")
 
     # Prepare data with "Completed" status
@@ -160,11 +164,11 @@ def display_exam_details():
     # Display data
     for row, exam in enumerate(modified_exams, start=1):
         for col, value in enumerate(exam):
-            label = Label(table_frame, text=value, bg="white", fg="goldenrod2",font=("Helvetica", 10), borderwidth=2, relief="groove")
+            label = Label(table_frame, text=value, bg="goldenrod2", fg="black",font=("Helvetica", 13), borderwidth=2, relief="groove",pady=12)
             label.grid(row=row, column=col, sticky="nsew")
 
 # Call the function to display exam details for the logged-in student
 display_exam_details()
 
-window.mainloop
-#
+window.mainloop()
+
