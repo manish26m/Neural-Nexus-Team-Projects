@@ -1,4 +1,4 @@
-# Futurense LMS 🌟
+# Futurense Learning management system 🌟
 <img width="960" alt="image" src="https://github.com/yashvisharma1204/Neural-Nexus/assets/137611141/5bafb37c-1926-4263-9cc5-54ea86a829c9">
 
 # Project Overview 📚
