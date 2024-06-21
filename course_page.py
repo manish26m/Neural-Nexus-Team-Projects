@@ -116,7 +116,7 @@ class CoursesApp(tk.Tk):
         self.logo_image = ImageTk.PhotoImage(logo)
 
         # Left logo
-        left_logo_path = r"C:\Users\Kumari\OneDrive\Desktop\coding\bootcamp\left.jpeg"
+        left_logo_path = "background2.jpeg"
         left_logo = Image.open(left_logo_path)
         left_logo = left_logo.resize((100, 100), Image.LANCZOS)
         self.left_logo_image = ImageTk.PhotoImage(left_logo)
