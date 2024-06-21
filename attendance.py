@@ -1,7 +1,7 @@
 import tkinter as tk
 import mysql.connector
 from PIL import Image, ImageTk
-
+import subprocess
 username = "root"
 password = "vaibhav"
 
@@ -62,19 +62,21 @@ for i in tables:
 # total
 total_percent = (one + two + three + four + five)/5
 
-# Student name
-student = ""
-cursor = my_db.cursor()
-cursor.execute("SELECT s.sname FROM student s JOIN attendance a ON a.sid = s.sid WHERE a.sid = 1;")
-tables = cursor.fetchall()
 
-student = set()
-for i in tables:
-    student.add(i)
-    
-for i in student:
-    student = i[0]
-    
+def grade():
+    root.destroy()
+    subprocess.run(["python", "grade.py"])
+def course():
+    subprocess.run(["python", "course_page.py"])
+    root.destroy()
+def home():
+    root.destroy()
+    subprocess.run(["python", "main.py"])
+
+def assignment():
+    root.destroy()
+    subprocess.run(["python", "Assignment/main1.py"])
+
 root = tk.Tk()
 root.title("Attendance")
 root.geometry("1920x1080")
@@ -85,9 +87,9 @@ header = tk.Frame(root, bg="black", width=1920, height=105)
 header.pack()
 
 # Image label
-pil_image = Image.open("logo.png")
+pil_image = Image.open("Assignment/logo.png")
 pil_image = pil_image.resize((100, 100))
-lpu_image = Image.open("lpu.png")
+lpu_image = Image.open("background3.jpeg")
 lpu_image = lpu_image.resize((200, 100))
 
 tk_image = ImageTk.PhotoImage(pil_image)
@@ -104,24 +106,22 @@ lpu_label.place(x = 1325, y = 0)
 # Attendance heading
 attendance_label = tk.Label(header, text="Attendance", bg="black", fg="white", font=("Times", 20))
 attendance_label.place(x = 800, y = 20)
-name_label = tk.Label(header, text=student, bg="black", fg="white", font=("Times", 15))
-name_label.place(x = 815, y = 60)
 
 # Sidebar Frane
 sidebar = tk.Frame(root, width=100, bg="black")
 sidebar.place(x=0, y=105, height=800, width=100)  
 
 # Buttons
-button1 = tk.Button(sidebar, text="Home", bg="black", fg="white")
+button1 = tk.Button(sidebar, text="Home", bg="black", fg="white", command=home)
 button1.pack(pady=15)
 
-button2 = tk.Button(sidebar, text="Show Courses", bg="black", fg="white")
+button2 = tk.Button(sidebar, text="Show Courses", bg="black", fg="white", command = course)
 button2.pack(pady=15)
 
-button3 = tk.Button(sidebar, text="Show Assignment", bg="black", fg="white")
+button3 = tk.Button(sidebar, text="Show Assignment", bg="black", fg="white", command=assignment)
 button3.pack(pady=15)
 
-button4 = tk.Button(sidebar, text="Show Grades", bg="black", fg="white")
+button4 = tk.Button(sidebar, text="Show Grades", bg="black", fg="white", command=grade)
 button4.pack(pady=15)
 
 button5 = tk.Button(sidebar, text="Show Exams", bg="black", fg="white")
