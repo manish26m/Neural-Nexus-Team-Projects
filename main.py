@@ -123,7 +123,7 @@ toggle_button = Button(window, image=icon_photo, command=toggle_left_column, bor
 toggle_button.place(x=1450, y=150)  # Place the button in the middle below the header
 
 # Create card buttons directly on the window
-create_card_button(window,"Show Attendance", "main_page/attendance.jpg", lambda:button_command('attendance.py'), 650, 320)
+create_card_button(window,"Show Attendance", "main_page/attendance.jpg", lambda:button_command('attendance.py'), 655, 320)
 create_card_button(window,"Show Grades", "main_page/grades.jpg", lambda:button_command('grade.py'), 1110, 490)
 create_card_button(window,"Show Exams", "main_page/exams.jpg", lambda:button_command('exam.py'), 1110, 190)
 header_frame = Frame(window, height=120, bg='black')
