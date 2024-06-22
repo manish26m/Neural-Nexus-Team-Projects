@@ -96,14 +96,14 @@ def exams():
     subprocess.run(["python", "exam.py"])
 root = tk.Tk()
 root.title("Attendance")
-root.geometry("1378x700")  # Set the geometry of the window
+root.geometry("1766x768")  # Set the geometry of the window
 
 # Sidebar Frane
-sidebar = tk.Frame(root, width=360, bg="gray16")
-sidebar.place(x=0, y=105, height=800, width=150)  
+sidebar = tk.Frame(root, width=250, bg="gray16")
+sidebar.place(x=0, y=105, height=800, width=205)  
 
 # Create a frame for the header with black background
-header = tk.Frame(root, bg="black", width=1378, height=120)
+header = tk.Frame(root, bg="black", width=1550, height=120)
 header.pack()
 
 # Create a label inside the header frame
@@ -128,38 +128,29 @@ lpu_label = tk.Label(header, image=lpu_image, bg="black")
 lpu_label.image = tk_image
 lpu_label.place(x = 1325, y = 0)
 
+
+def open_app(x):
+    root.destroy()
+    subprocess.Popen(['python',x])
+
 # Attendance heading
 
 
-# Buttons
-button1 = tk.Button(sidebar, text="Home", bg="black", fg="white", font=('Helvetica',12),command=home, height=2, width=10)
-button1.pack(pady=35)
 
-button2 = tk.Button(sidebar, text="Courses", bg="black", fg="white", font=('Helvetica',12), command = course,height=2, width=10)
-button2.pack(pady=35)
-
-button3 = tk.Button(sidebar, text="Assignment", bg="black", fg="white", font=('Helvetica',12), command=assignment,height=2, width=10)
-button3.pack(pady=35)
-
-button4 = tk.Button(sidebar, text="Grades", bg="black", fg="white", font=('Helvetica',12), command=grade,height=2, width=10)
-button4.pack(pady=35)
-
-button5 = tk.Button(sidebar, text="Exams", bg="black", fg="white", command=exams,height=2, width=10)
-button5.pack(pady=35)
 
 # Create subject frame
 maths = tk.Frame(root, width=900, height=80, bg="goldenrod2")
-maths.place(x=200, y=125)
+maths.place(x=400, y=150)
 physics = tk.Frame(root, width=900, height=80, bg="goldenrod2")
-physics.place(x=200, y=215)
+physics.place(x=400, y=250)
 chem = tk.Frame(root, width=900, height=80, bg="goldenrod2")
-chem.place(x=200, y=305)
+chem.place(x=400, y=350)
 bio = tk.Frame(root, width=900, height=80, bg="goldenrod2")
-bio.place(x=200, y=395)
+bio.place(x=400, y=450)
 cs = tk.Frame(root, width=900, height=80, bg="goldenrod2")
-cs.place(x=200, y=485)
+cs.place(x=400, y=550)
 se=tk.Frame(root,width=900,height=80, bg='goldenrod2')
-se.place(x=200, y=575)
+se.place(x=400, y=650)
 
 
 # Subject name
@@ -217,6 +208,34 @@ cs_att = tk.Label(cs, text=str(five),font=("Times", 16),  bg="goldenrod2")
 cs_att.place(x=625, y=55)
 total_att = tk.Label(se, text=str(six), font=("Times", 16), bg="goldenrod2")
 total_att.place(x = 625, y = 55)
+
+
+
+# Buttons
+button1 = tk.Button(sidebar, text="DASHBOARD", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('main.py'))
+button1.place(x=20, y=70)
+button2 = tk.Button(sidebar, text="ASSIGNMENT", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('Assignment/main1.py'))
+button2.place(x=20, y=170)
+button3 = tk.Button(sidebar, text="ATTENDANCE", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('attendance.py'))
+button3.place(x=20, y=270)
+button4 = tk.Button(sidebar, text="EXAMS", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('exam.py'))
+button4.place(x=20, y=370)
+button5 = tk.Button(sidebar, text="COURSES", bg='gray16', fg='white', font=('helvetica', 12, 'bold'), width=15,command=lambda:open_app('grade.py'))
+button5.place(x=20, y=470)
+
+# Function to toggle left column visibility
+left_column_visible = True
+def toggle_left_column():
+    global left_column_visible
+    if left_column_visible:
+        sidebar.place_forget()
+        left_column_visible = False
+    else:
+        sidebar.place(x=0, y=0, relheight=1, anchor='nw')
+        left_column_visible = True
+
+toggle_button = tk.Button(root, text="☰", command=toggle_left_column, borderwidth=0, bg="white", fg="black")
+toggle_button.place(x=1500, y=150)
 
 
 root.mainloop()

@@ -69,7 +69,7 @@ window.iconbitmap(logo_path)
 
 # Create frame1 with white background
 frame1 = tk.Frame(window, bg="white")
-frame1.place(relx=0.53, rely=0.55, anchor=tk.CENTER, width=1100, height=500)
+frame1.place(relx=0.57, rely=0.553, anchor=tk.CENTER, width=1100, height=500)
 
 # Background image for frame1
 '''frame1_bg_image = Image.open("white4.png")
@@ -121,7 +121,7 @@ def toggle_left_column():
         left_column_visible = True
 
 toggle_button = tk.Button(window, text="☰", command=toggle_left_column, borderwidth=0, bg="black", fg="white")
-toggle_button.place(x=1200, y=150)
+toggle_button.place(x=1500, y=150)
 
 # Header frame
 header_frame = Frame(window, height=120, bg='black')
