@@ -7,7 +7,7 @@ from tkinter import messagebox
 import subprocess
 
 username = "root"
-password = "Tiya1221"
+password = "30127"
 
 # MySQL connection code
 my_db = mysql.connector.connect(

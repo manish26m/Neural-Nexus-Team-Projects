@@ -51,7 +51,7 @@ class Assignment:
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='Tiya1221',
+            password='30127',
             database='futurense'
         )
         cursor = conn.cursor()
@@ -98,7 +98,7 @@ class Assignment:
             conn = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='Tiya1221',
+                password='30127',
                 database='futurense'
             )
             cursor = conn.cursor()
@@ -193,7 +193,7 @@ def start():
     conn = mysql.connector.connect( 
             host='localhost',
             user='root',
-            password='Tiya1221',
+            password='30127',
             database='futurense'
     )
     cursor = conn.cursor()

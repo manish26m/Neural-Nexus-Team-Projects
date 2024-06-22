@@ -3,7 +3,7 @@ import mysql.connector
 from PIL import Image, ImageTk
 import subprocess
 username = "root"
-password = "Tiya1221"
+password = "30127"
 
 my_db = mysql.connector.connect(
     host="localhost",

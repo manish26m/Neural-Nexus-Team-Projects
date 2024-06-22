@@ -16,7 +16,7 @@ class CoursesApp(tk.Tk):
         self.conn = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="Tiya1221",
+            password="30127",
             database="futurense"
         )
 
