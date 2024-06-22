@@ -43,11 +43,11 @@ class CoursesApp(tk.Tk):
         # Position logos on the header canvas
         left_logo_label = tk.Label(self.top_canvas, image=self.left_logo_image, bg='black')
         left_logo_label.image = self.left_logo_image
-        left_logo_label.place(relx=0.1, rely=0.5, anchor='center')
+        left_logo_label.place(relx=0.07, rely=0.5, anchor='center')
 
         right_logo_label = tk.Label(self.top_canvas, image=self.logo_image, bg='black')
         right_logo_label.image = self.logo_image
-        right_logo_label.place(relx=0.9, rely=0.5, anchor='center')
+        right_logo_label.place(relx=0.94, rely=0.5, anchor='center')
 
         # Add the "MY COURSES" label in the middle of the top canvas
         courses_label = tk.Label(self.top_canvas, text="MY COURSES", bg='black', fg='white', font=('Arial', 24, 'bold'))
@@ -174,17 +174,17 @@ class CourseDetailsWindow(tk.Toplevel):
         # Left logo
         left_logo_path = "background2.jpeg"
         left_logo = Image.open(left_logo_path)
-        left_logo = left_logo.resize((300, 150), Image.LANCZOS)
+        left_logo = left_logo.resize((280, 150), Image.LANCZOS)
         self.left_logo_image = ImageTk.PhotoImage(left_logo)
 
         left_logo_label = tk.Label(header_frame, image=self.left_logo_image, bg='black')
         left_logo_label.image = self.left_logo_image
-        left_logo_label.pack(side=tk.LEFT, padx=10, pady=10)
+        left_logo_label.pack(side=tk.LEFT, padx=0, pady=10)
 
         # Right logo
         right_logo_path = "background3.jpeg"
         right_logo = Image.open(right_logo_path)
-        right_logo = right_logo.resize((200, 100), Image.LANCZOS)
+        right_logo = right_logo.resize((210, 100), Image.LANCZOS)
         self.right_logo_image = ImageTk.PhotoImage(right_logo)
 
         right_logo_label = tk.Label(header_frame, image=self.right_logo_image, bg='black')
