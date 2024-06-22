@@ -21,12 +21,12 @@ cursor.execute("SHOW TABLES")
 tables = cursor.fetchall()
 
 window = ThemedTk(theme='aqua')
-window.geometry("1366x768")
+window.geometry("1766x768")
 window.title("Futurense")
 
 # Load the background image
 bg_image = Image.open("main_page/background.jpg")
-bg_image= bg_image.resize((1366,768),Image.LANCZOS)
+bg_image= bg_image.resize((1766,768),Image.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
 
@@ -37,16 +37,16 @@ bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 # Function to create a card button in the left column frame
 def create_card_button(window, text, image_path, command, x, y,raise_distance=5):
     icon_image = Image.open(image_path)
-    icon_image = icon_image.resize((250, 150), Image.LANCZOS)
+    icon_image = icon_image.resize((260, 160), Image.LANCZOS)
     icon_photo = ImageTk.PhotoImage(icon_image)
 
     # Create shadow button to create a raised effect
-    shadow = Button(window, image=icon_photo, compound='top', borderwidth=0, width=250, height=180)
+    shadow = Button(window, image=icon_photo, compound='top', borderwidth=0, width=260, height=190)
     shadow.image = icon_photo  # keep a reference to avoid garbage collection
     shadow.place(x=x + raise_distance, y=y + raise_distance)
 
     # Create main button with text and image
-    button = Button(window, text=text, image=icon_photo, compound='top', command=command, borderwidth=0, width=250, height=180, font=('Times', 16, 'bold'))
+    button = Button(window, text=text, image=icon_photo, compound='top', command=command, borderwidth=0, width=263, height=193, font=('Times', 16, 'bold'))
     button.image = icon_photo  # keep a reference to avoid garbage collection
 
     # Place button slightly above the shadow to create a raised effect
@@ -58,8 +58,8 @@ def create_card_button(window, text, image_path, command, x, y,raise_distance=5)
 def button_command(x):
     window.destroy()
     subprocess.Popen(['python',x])
-create_card_button(window,"Show Courses", "main_page/course.jpg", lambda:button_command('course_page.py'), 100, 150)
-create_card_button(window,"Show Assignments", "main_page/assignment.jpg",lambda:button_command('Assignment/main1.py'), 100, 450)
+create_card_button(window,"Show Courses", "main_page/course.jpg", lambda:button_command('course_page.py'), 210, 190)
+create_card_button(window,"Show Assignments", "main_page/assignment.jpg",lambda:button_command('Assignment/main1.py'), 210, 490)
 # Toggle function to show/hide the left column
 
 left_column_width = 0.25 * 1366  # 25% of the window width
@@ -120,12 +120,12 @@ icon_photo = ImageTk.PhotoImage(icon_image)
 
 # Create a button with the icon for toggling left column visibility
 toggle_button = Button(window, image=icon_photo, command=toggle_left_column, borderwidth=0, bg="goldenrod2")
-toggle_button.place(x=1200, y=150)  # Place the button in the middle below the header
+toggle_button.place(x=1450, y=150)  # Place the button in the middle below the header
 
 # Create card buttons directly on the window
-create_card_button(window,"Show Attendance", "main_page/attendance.jpg", lambda:button_command('attendance.py'), 480, 300)
-create_card_button(window,"Show Grades", "main_page/grades.jpg", lambda:button_command('grade.py'), 850, 450)
-create_card_button(window,"Show Exams", "main_page/exams.jpg", lambda:button_command('exam.py'), 850, 150)
+create_card_button(window,"Show Attendance", "main_page/attendance.jpg", lambda:button_command('attendance.py'), 650, 320)
+create_card_button(window,"Show Grades", "main_page/grades.jpg", lambda:button_command('grade.py'), 1110, 490)
+create_card_button(window,"Show Exams", "main_page/exams.jpg", lambda:button_command('exam.py'), 1110, 190)
 header_frame = Frame(window, height=120, bg='black')
 header_frame.place(x=0, y=0, relwidth=1)
 
@@ -142,7 +142,7 @@ photo = ImageTk.PhotoImage(image)
 header_canvas.create_image(100, 60, image=photo, anchor='center')  # Adjust position as necessary
 
 # Add text to the Canvas
-header_canvas.create_text(650, 60, text="Learning Management System", fill='white', font=('Times', 30, 'bold'), anchor='center')  # Adjust position as necessary
+header_canvas.create_text(775, 60, text="Learning Management System", fill='white', font=('Times', 30, 'bold'), anchor='center')  # Adjust position as necessary
 yellow_line_frame = Frame(window, height=2, bg='goldenrod2')
 yellow_line_frame.place(x=0, y=120, height=10,relwidth=1)
 def logout():
