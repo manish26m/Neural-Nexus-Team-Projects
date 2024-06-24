@@ -3,7 +3,7 @@ import mysql.connector
 from PIL import Image, ImageTk
 import subprocess
 username = "root"
-password = "30127"
+password = "Tiya1221"
 
 my_db = mysql.connector.connect(
     host="localhost",
@@ -97,7 +97,15 @@ def exams():
 root = tk.Tk()
 root.title("Attendance")
 root.geometry("1766x768")  # Set the geometry of the window
+bg_image = Image.open("background_image.jpg")  # Replace with your image file path
+# Resize the image to fit the window sizeW
+bg_image = bg_image.resize((1378, 700), Image.ANTIALIAS)
+# Convert Image object to Tkinter PhotoImage object
+bg_photo = ImageTk.PhotoImage(bg_image)
 
+# Create a label to display the background image
+bg_label = tk.Label(root, image=bg_photo)
+bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 # Sidebar Frane
 sidebar = tk.Frame(root, width=250, bg="gray16")
 sidebar.place(x=0, y=105, height=800, width=205)  
