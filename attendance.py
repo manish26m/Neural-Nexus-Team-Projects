@@ -99,7 +99,7 @@ root.title("Attendance")
 root.geometry("1766x768")  # Set the geometry of the window
 bg_image = Image.open("background_image.jpg")  # Replace with your image file path
 # Resize the image to fit the window sizeW
-bg_image = bg_image.resize((1378, 700), Image.ANTIALIAS)
+bg_image = bg_image.resize((1378, 700), Image.LANCZOS)
 # Convert Image object to Tkinter PhotoImage object
 bg_photo = ImageTk.PhotoImage(bg_image)
 
