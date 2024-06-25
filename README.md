@@ -57,3 +57,11 @@ Contains the main page or dashboard.
 8. **Log Out** 🚪
    - Come back to the dashboard and click on the logout button on the upper side.
    - It will bring you back to the login page.
+
+## Roles and Responsibilities 
+1. YashvI Sharma: (Leader) Dashboard and contribution in Exams and Course sections
+2. Punit Kumar: Login Page, Result section and contribution in Exams section 
+3. Manish Mishra: Assignment section
+4. Vaibhav Tamang: Attendance section
+5. Pichkala Aditya: Course Section
+Special thanks to our dedicated team and supportive mentors for making the Futurense LMS a reality. Your hard work and guidance have been invaluable! 🙏✨
