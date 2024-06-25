@@ -59,8 +59,8 @@ Contains the main page or dashboard.
    - It will bring you back to the login page.
 
 ## Roles and Responsibilities 
-1.**Yashvi Sharma:(Leader)** Dashboard and contribution in Exams and Course sections
-2. **Punit Kumar:** Login Page, Result section and contribution in Exams section 
+1. **Yashvi Sharma:(Leader)** Dashboard and contribution in Exams and Course sections
+2. **Punit Kumar:** Login Page, Result section and contribution in Exams section
 3. **Manish Mishra:** Assignment section
 4. **Vaibhav Tamang:** Attendance section
 5. **Pichikala Aditya:** Course Section
