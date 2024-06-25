@@ -141,7 +141,7 @@ def login():
     password = password_entry.get()
 
     if not user or not password:
-        messagebox.showerror("Error", "Please enter both username and password")
+        messagebox.showerror("Error", "Please enter valid username or password")
         return
 
     query = "SELECT * FROM student WHERE email = %s AND password = %s"
