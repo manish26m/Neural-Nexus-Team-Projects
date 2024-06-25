@@ -64,4 +64,5 @@ Contains the main page or dashboard.
 3. **Manish Mishra:** Assignment section
 4. **Vaibhav Tamang:** Attendance section
 5. **Pichikala Aditya:** Course Section
+
 Special thanks to our dedicated team and supportive mentors for making the Futurense LMS a reality. Your hard work and guidance have been invaluable! 🙏✨
