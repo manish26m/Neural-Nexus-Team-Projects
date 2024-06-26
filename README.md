@@ -1,5 +1,8 @@
 # Futurense Learning management system 🌟
-<img width="960" alt="image" src="https://github.com/yashvisharma1204/Neural-Nexus/assets/137611141/5bafb37c-1926-4263-9cc5-54ea86a829c9">
+
+https://github.com/yashvisharma1204/Neural-Nexus/assets/137611141/c7be88bc-c7a6-4f44-9f7a-2c1b8f521a0b
+
+
 
 # Project Overview 📚
 Futurense LMS is a comprehensive Learning Management System designed to cater to the needs of both students and educators. This system provides a user-friendly interface for managing courses, assignments, grades, attendance, and exams. Students can easily log in, update passwords, and access a main dashboard where they can view their enrolled courses, submit assignments, check their grades, and monitor attendance records. Educators can manage their course content, create assignments, and track student progress. The LMS is built with a robust client-server architecture, using Tkinter for the client-side interface and MySQL for secure data storage and management. This ensures seamless interaction between the users and the system, providing a streamlined educational experience.
