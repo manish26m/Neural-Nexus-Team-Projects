@@ -151,3 +151,4 @@ def logout():
 logout_button = Button(header_frame, text="Logout", command=logout, bg='firebrick1', fg='white', font=('Times', 16, 'bold'), borderwidth=0)
 logout_button.place(relx=1.0, x=-120, y=25, anchor='nw')
 window.mainloop()
+# mainloop ended
